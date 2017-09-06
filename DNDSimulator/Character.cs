@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DNDSimulator
 {
-  public class Character
+  public class Character : IComparable<Character>
   {
     public string Name { get; set; }
     public int Level { get; set; }
@@ -42,6 +42,8 @@ namespace DNDSimulator
     public int ArmorClass { get { return 10 + (Dexterity / 2 - 5); } }
     public IWeapon Weapon { get; set; }
     public bool IsAlive { get { return CurrentHitpoints > 0; } }
+
+    public int Initiative { get; set; }
 
     public Character(int[] stats, IClass chaClass, int level)
     {
@@ -80,6 +82,11 @@ namespace DNDSimulator
         Console.WriteLine(Name + ", dealt damage to " + cha.Name + ", " +damageDealt);
         cha.CurrentHitpoints -= damageDealt;
       }
+    }
+
+    public int CompareTo(Character other)
+    {
+      return other.Initiative.CompareTo(this.Initiative);
     }
   }
 }

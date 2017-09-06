@@ -10,6 +10,9 @@ namespace DNDSimulator
   {
     static void Main(string[] args)
     {
+      GameController.Instance.SetBattleFieldSize(20);
+      
+      // temp char generation
       List<Character> goodGuys = new List<Character>();
       List<Character> badGuys = new List<Character>();
       for(int i = 0; i < 3; i++)
@@ -18,6 +21,10 @@ namespace DNDSimulator
         badGuys.Add(new Character(CharacterController.Instance.GenerateStatRow(), new Warrior(), 1) { Weapon = new Shortspear(), Name = "Bad" + i });
       }
 
+      GameController.Instance.AddGroup("Silvershields", goodGuys);
+      GameController.Instance.AddGroup("Shadowguards", badGuys);
+      GameController.Instance.SimulateTurn();
+      // temp battle style
       List<Tuple<int,Character>> initiativeList = new List<Tuple<int, Character>>();
       for(int i = 0; i < badGuys.Count; i++)
       {
@@ -33,23 +40,23 @@ namespace DNDSimulator
       {
         Console.WriteLine(initiativeList[i].Item1 + " " + initiativeList[i].Item2.Name);
       }
-
+      
       //int war1Ini = GameController.Instance.RandomGenerator.Next(20) + 1 + war1.Dexterity / 2 - 5;
       //int war2Ini = GameController.Instance.RandomGenerator.Next(20) + 1 + war2.Dexterity / 2 - 5;
       //Character firstCha = war1Ini > war2Ini ? war1 : war2;
       //Character SecondCha = war1Ini > war2Ini ? war2 : war1;
       //Console.WriteLine("First Character " + firstCha.Name + ", Second Character "+ SecondCha.Name);
-      while(badGuys.Select(S => S.IsAlive == true).ToList().Count > 0 && goodGuys.Select(S => S.IsAlive == true).ToList().Count > 0)
-      {
+      //while (badGuys.Select(S => S.IsAlive == true).ToList().Count > 0 && goodGuys.Select(S => S.IsAlive == true).ToList().Count > 0)
+      //{
 
-        //Console.WriteLine(firstCha.Name + ": " + firstCha.CurrentHitpoints);
-        //Console.WriteLine(SecondCha.Name + ": " + SecondCha.CurrentHitpoints);
-        //firstCha.AttackCharacter(SecondCha);
-        //if (SecondCha.IsAlive)
-        //{
-        //  SecondCha.AttackCharacter(firstCha);
-        //}
-      }
+      //  //Console.WriteLine(firstCha.Name + ": " + firstCha.CurrentHitpoints);
+      //  //Console.WriteLine(SecondCha.Name + ": " + SecondCha.CurrentHitpoints);
+      //  //firstCha.AttackCharacter(SecondCha);
+      //  //if (SecondCha.IsAlive)
+      //  //{
+      //  //  SecondCha.AttackCharacter(firstCha);
+      //  //}
+      //}
       Console.ReadKey();
     }
   }
