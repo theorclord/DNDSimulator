@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using DNDSimulator.AI.BehaviorTree.Base;
+
 
 /// <summary>
 /// Checks if the AI has reached its desired destination

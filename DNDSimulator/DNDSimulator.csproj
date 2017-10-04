@@ -43,6 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\BehaviorTree\Base\BehaviorTreeNode.cs" />
+    <Compile Include="AI\BehaviorTree\Base\CompositeNode.cs" />
+    <Compile Include="AI\BehaviorTree\Base\DecoratorNode.cs" />
+    <Compile Include="AI\BehaviorTree\Base\LeafNode.cs" />
+    <Compile Include="AI\BehaviorTree\BehaviorTree.cs" />
+    <Compile Include="AI\BehaviorTree\CompositeNodes\SelectorNode.cs" />
+    <Compile Include="AI\BehaviorTree\CompositeNodes\SequenceNode.cs" />
+    <Compile Include="AI\BehaviorTree\DecoratorNodes\FailUntilFrameCount.cs" />
+    <Compile Include="AI\BehaviorTree\DecoratorNodes\InverterNode.cs" />
+    <Compile Include="AI\BehaviorTree\LeafNodes\CheckDesireDestinationReached.cs" />
+    <Compile Include="AI\BehaviorTree\LeafNodes\ContinueDialog.cs" />
+    <Compile Include="AI\BehaviorTree\LeafNodes\FindAndSetDesireDestination.cs" />
+    <Compile Include="AI\BehaviorTree\LeafNodes\FindNearbyActors.cs" />
+    <Compile Include="AI\BehaviorTree\LeafNodes\JoinNearbyDialog.cs" />
+    <Compile Include="AI\BehaviorTree\LeafNodes\ReduceDesireLocation.cs" />
+    <Compile Include="AI\BehaviorTree\LeafNodes\SetAiActorDestination.cs" />
+    <Compile Include="AI\BehaviorTree\LeafNodes\SetAndSortDesires.cs" />
+    <Compile Include="AI\BehaviorTree\LeafNodes\TryToStartDialog.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharacterController.cs" />
     <Compile Include="GameController.cs" />
@@ -58,6 +76,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
